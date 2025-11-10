@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface WeatherForecast {
+  date: string;
+  temperatureC: number;
+  temperatureF: number;
+  summary: string;
 }
 
-export default App
+function App() {
+  const [forecast, setForecast] = useState<WeatherForecast[] | null>(null);
+
+  useEffect(() => {
+    fetch("https://localhost:7062/weatherforecast")
+      .then(res => res.json())
+      .then((data: WeatherForecast[]) => setForecast(data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div className="p-4 font-sans">
+      <h1 className="text-xl font-bold mb-2">Weather Forecast</h1>
+      {forecast ? (
+        <ul className="space-y-2">
+          {forecast.map((item, index) => (
+            <li key={index} className="p-2 border rounded">
+              <div>{new Date(item.date).toLocaleDateString()}</div>
+              <div>{item.temperatureC}°C / {item.temperatureF}°F</div>
+              <div>{item.summary}</div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+}
+
+export default App;
