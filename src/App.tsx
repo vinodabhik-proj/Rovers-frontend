@@ -11,7 +11,7 @@ function App() {
   const [forecast, setForecast] = useState<WeatherForecast[] | null>(null);
 
   useEffect(() => {
-    fetch("https://localhost:7062/weatherforecast")
+    fetch(`${import.meta.env.VITE_API_URL}/weatherforecast`)
       .then(res => res.json())
       .then((data: WeatherForecast[]) => setForecast(data))
       .catch(err => console.error(err));
