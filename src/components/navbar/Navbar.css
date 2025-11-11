@@ -1,0 +1,81 @@
+/* navbar.css */
+
+/* Make the navbar stay at the top and span full width */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: #ffffff00;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+
+/* Navlinks styles */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Club icon styles*/
+.nav-center {
+  position: absolute;
+  left: 48%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+	z-index: 1;
+}
+
+/* User icon style */
+.nav-right {
+  position: absolute;
+  right: 1.5rem;       /* ← your 1.5rem offset */
+  display: flex;
+  align-items: center;
+}
+
+.nav-right svg {
+  color: white;
+	margin-right: 4rem;
+}
+
+/* Link styles */
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+/* Active link styling */
+nav a.active {
+  color: #007bff;
+  font-weight: 600;
+}
+
+/* Responsiveness */
+
+@media (max-width: 600px) {
+  nav {
+    padding: 0 1rem;
+  }
+
+  .nav-left {
+    gap: 1rem;
+  }
+
+	.nav-right {
+		margin-right: 1rem;
+	}
+}
