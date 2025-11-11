@@ -23,4 +23,4 @@ jobs:
       # working-directory: .
       - name: Build
         run: npm run build
-        working-directory: rovers-frontend
+        working-directory: .
