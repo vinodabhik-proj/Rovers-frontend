@@ -1,38 +1,18 @@
-import { useEffect, useState } from "react";
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Reports from "./pages/Reports/Reports";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
-  const [forecast, setForecast] = useState<WeatherForecast[] | null>(null);
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/weatherforecast`)
-      .then(res => res.json())
-      .then((data: WeatherForecast[]) => setForecast(data))
-      .catch(err => console.error(err));
-  }, []);
 
   return (
-    <div className="p-4 font-sans">
-      <h1 className="text-xl font-bold mb-2">Weather Forecast</h1>
-      {forecast ? (
-        <ul className="space-y-2">
-          {forecast.map((item, index) => (
-            <li key={index} className="p-2 border rounded">
-              <div>{new Date(item.date).toLocaleDateString()}</div>
-              <div>{item.temperatureC}°C / {item.temperatureF}°F</div>
-              <div>{item.summary}</div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/"  element={ <Home /> } />
+        <Route path="/reports" element={ <Reports />} />
+        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+      </Routes>
     </div>
   );
 }
