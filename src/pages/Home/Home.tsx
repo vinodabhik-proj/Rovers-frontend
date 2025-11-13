@@ -1,5 +1,6 @@
 import "./Home.css";
 import roversPhoto from "../../images/teamPhoto.png";
+import CardGrid from "../../components/CardGrid/CardGrid";
 
 export default function Home() {
     return (
@@ -53,7 +54,7 @@ export default function Home() {
                 </p>
             </div>
             <div className="team">
-                <h2>The Team</h2>
+                <CardGrid />
             </div>
         </div>
     );
