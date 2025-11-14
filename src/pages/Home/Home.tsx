@@ -1,10 +1,11 @@
 import "./Home.css";
+import "../../styles/styles.css";
 import roversPhoto from "../../images/teamPhoto.png";
 import CardGrid from "../../components/CardGrid/CardGrid";
 
 export default function Home() {
     return (
-        <div className="home">
+        <div className="home TopDiv">
             <h1>Trumpington Rovers</h1>
             <div className="firstSection">
                 <img src={roversPhoto} />
