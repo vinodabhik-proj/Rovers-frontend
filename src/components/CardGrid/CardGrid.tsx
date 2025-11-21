@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { cards } from "../../data/cards";
 import type { CardItem } from "../../models";
 import "./CardGrid.css";
+import "../../styles/styles.css";
 
 export default function CardGrid() {
 	return (
@@ -10,7 +11,7 @@ export default function CardGrid() {
       <div className="card-grid">
         {cards.map((card: CardItem, index) => (
           <motion.div
-            className="card"
+            className="card TemplateCard"
             key={card.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

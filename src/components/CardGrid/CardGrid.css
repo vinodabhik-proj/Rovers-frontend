@@ -21,19 +21,8 @@
 }
 
 .card {
-  background-color: #393939;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   width: 15rem;
 	height: 18rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-	border: 2px solid white;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
 }
 
 .card-image {
