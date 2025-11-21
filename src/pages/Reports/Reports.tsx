@@ -1,15 +1,44 @@
 import { motion } from "framer-motion";
-import { reports } from "../../data/reports";
 import "./Reports.css";
 import "../../styles/styles.css";
 import type { ReportItem } from "../../models";
+import { useEffect, useState } from "react";
+import { getReports } from "../../services/ReportService";
 
 export default function Reports() {
+	const [reports, setReports] = useState<ReportItem[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
+	const [error, setError] = useState<string | null>(null);
+
+
+	async function LoadReports() {
+		try {
+			const data = await getReports();
+			setReports(data);
+		} catch (err) {
+			console.log(err);
+			setError("Unable to retrieve reports at this time.");
+		} finally {
+			setLoading(false);
+		}
+	}
+
+	useEffect(() => {
+		LoadReports();
+	});
+
+	if (loading) return <p>Loading...</p>;
+
+	if (error) return <h2>{error}</h2>
+
+	if (reports.length === 0) return <h1>No Reports Available</h1>;
+
 	const options = {
 		day: "numeric",
 		month: "long",
 		year: "numeric"
-	}
+	} as const;
+
 	return (
 		<div className="Reports TopDiv">
 			<h1>Match Reports</h1>
