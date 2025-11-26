@@ -1,6 +1,5 @@
 module.exports = {
   preset: "ts-jest",
-  rootDir: "rovers-frontend", 
   testEnvironment: "jsdom",
   moduleNameMapper: {
     "\\.(css|less|scss)$": "identity-obj-proxy",
