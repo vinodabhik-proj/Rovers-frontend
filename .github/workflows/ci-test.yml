@@ -35,6 +35,7 @@ jobs:
       # 4. Run Jest Unit + Integration tests
       # -------------------------------------------------------------
       - name: Run Jest tests
+        working-directory: rovers-frontend
         run: npm run test -- --ci --coverage
 
       # -------------------------------------------------------------
