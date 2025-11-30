@@ -43,6 +43,7 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.3",
     "vite": "^7.2.2",
+    "web-streams-polyfill": "^4.2.0",
     "whatwg-fetch": "^3.6.20"
   }
 }
