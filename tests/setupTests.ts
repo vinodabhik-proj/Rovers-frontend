@@ -6,8 +6,10 @@ Object.assign(global, {
   TextDecoder
 });
 
-Object.defineProperty(import.meta, "env", {
-  value: {
-    VITE_API_URL: "http://localhost:3000"
-  }
+globalThis.importMetaEnv = {
+  VITE_API_URL: "http://localhost:3000"
+};
+
+Object.defineProperty(globalThis, "import", {
+  value: { meta: { env: globalThis.importMetaEnv } }
 });
