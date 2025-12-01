@@ -1,6 +1,9 @@
 import type { ReportItem } from "../models";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL =
+  (import.meta as any)?.env?.VITE_API_URL ??
+  (globalThis as any).importMetaEnv?.VITE_API_URL;
+
 
 export async function getReports() : Promise<ReportItem[]> {
 
