@@ -2,10 +2,8 @@ module.exports = {
   preset: "ts-jest",
   rootDir: ".",
   testEnvironment: "jsdom",
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.test.json"
-    }
+  transform: {
+    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "tsconfig.json" }]
   },
   moduleNameMapper: {
     "\\.(css|less|scss)$": "identity-obj-proxy",
