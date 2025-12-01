@@ -3,7 +3,7 @@ module.exports = {
   rootDir: ".",
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "tsconfig.json" }]
+    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "tsconfig.test.json" }]
   },
   moduleNameMapper: {
     "\\.(css|less|scss)$": "identity-obj-proxy",
