@@ -1,11 +1,18 @@
 module.exports = {
   preset: "ts-jest",
-  rootDir: ".",
   testEnvironment: "jsdom",
+  rootDir: ".",
   transform: {
     "^.+\\.tsx?$": [
-      "ts-jest", { 
-        tsconfig: "tsconfig.test.json"
+      "ts-jest",
+      {
+        tsconfig: {
+          module: "esnext",
+          moduleResolution: "node",
+          verbatimModuleSyntax: false,
+          jsx: "react-jsx",
+          types: ["jest", "node"]
+        }
       }
     ]
   },
