@@ -12,6 +12,7 @@ module.exports = {
           moduleResolution: "node",
           verbatimModuleSyntax: false,
           jsx: "react-jsx",
+          esModuleInterop: true,
           types: ["jest", "node"],
           include: ["src", "types"]
         }
