@@ -8,10 +8,12 @@ module.exports = {
       {
         tsconfig: {
           module: "esnext",
+          target: "es2022",
           moduleResolution: "node",
           verbatimModuleSyntax: false,
           jsx: "react-jsx",
-          types: ["jest", "node"]
+          types: ["jest", "node"],
+          include: ["src", "types"]
         }
       }
     ]
