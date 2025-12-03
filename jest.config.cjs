@@ -13,8 +13,7 @@ module.exports = {
           verbatimModuleSyntax: false,
           jsx: "react-jsx",
           esModuleInterop: true,
-          types: ["jest", "node"],
-          include: ["src", "types"]
+          types: ["jest", "node"]
         }
       }
     ]
