@@ -5,12 +5,10 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": [
       "ts-jest", { 
-        tsconfig: "tsconfig.test.json",
-        useESM: true
+        tsconfig: "tsconfig.test.json"
       }
     ]
   },
-  extensionsToTreatAsEsm: [".ts", ".tsx"],
   moduleNameMapper: {
     "\\.(css|less|scss)$": "identity-obj-proxy",
     "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/tests/fileMock.js"
