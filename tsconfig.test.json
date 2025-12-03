@@ -6,7 +6,6 @@
     "target": "es2023",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "verbatimModuleSyntax": false,
     "jsx": "react-jsx",
     "types": ["jest", "node"]
   },
