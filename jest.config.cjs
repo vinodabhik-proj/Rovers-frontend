@@ -7,15 +7,13 @@ module.exports = {
       "ts-jest",
       {
         tsconfig: {
-          compilerOptions: {
-            module: "ESnext",
-            target: "ES2022",
-            moduleResolution: "node",
-            jsx: "react-jsx",
-            verbatimModuleSyntax: false,
-            esModuleInterop: true,
-            types: ["jest", "node"]
-          }
+          module: "ESnext",
+          target: "ES2022",
+          moduleResolution: "node",
+          jsx: "react-jsx",
+          verbatimModuleSyntax: false,
+          esModuleInterop: true,
+          types: ["jest", "node"]
         }
       }
     ]
