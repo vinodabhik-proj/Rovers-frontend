@@ -8,8 +8,8 @@ module.exports = {
       {
         tsconfig: {
           compilerOptions: {
-            module: "esnext",
-            target: "es2020",
+            module: "ESnext",
+            target: "ES2022",
             moduleResolution: "node",
             jsx: "react-jsx",
             verbatimModuleSyntax: false,
