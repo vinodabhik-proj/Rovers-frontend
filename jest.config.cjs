@@ -7,13 +7,17 @@ module.exports = {
       "ts-jest",
       {
         tsconfig: {
-          module: "esnext",
-          target: "es2022",
-          moduleResolution: "node",
-          verbatimModuleSyntax: false,
-          jsx: "react-jsx",
-          esModuleInterop: true,
-          types: ["jest", "node"]
+          tsconfigRootDir: __dirname,
+          include: ["src"], 
+          compilerOptions: {
+            module: "esnext",
+            target: "es2020",
+            moduleResolution: "node",
+            jsx: "react-jsx",
+            verbatimModuleSyntax: false,
+            esModuleInterop: true,
+            types: ["jest", "node"]
+          }
         }
       }
     ]
@@ -24,3 +28,4 @@ module.exports = {
   },
   setupFilesAfterEnv: ["<rootDir>/tests/setupTests.ts"]
 };
+
