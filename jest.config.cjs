@@ -7,7 +7,6 @@ module.exports = {
       "ts-jest",
       {
         tsconfig: {
-          tsconfigRootDir: __dirname,
           compilerOptions: {
             module: "esnext",
             target: "es2020",
