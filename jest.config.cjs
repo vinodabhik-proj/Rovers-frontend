@@ -14,7 +14,7 @@ module.exports = {
           verbatimModuleSyntax: false,
           esModuleInterop: true,
           types: ["jest", "node"],
-          include: ["src/**/*.d.ts"]
+          include: ["src", "tests"]
         }
       }
     ]
