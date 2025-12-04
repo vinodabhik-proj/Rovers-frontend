@@ -8,7 +8,6 @@ module.exports = {
       {
         tsconfig: {
           tsconfigRootDir: __dirname,
-          include: ["src"], 
           compilerOptions: {
             module: "esnext",
             target: "es2020",
