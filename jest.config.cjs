@@ -5,18 +5,7 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": [
       "ts-jest",
-      {
-        tsconfig: {
-          module: "ESnext",
-          target: "ES2022",
-          moduleResolution: "node",
-          jsx: "react-jsx",
-          verbatimModuleSyntax: false,
-          esModuleInterop: true,
-          types: ["jest", "node"],
-          include: ["src", "tests"]
-        }
-      }
+      { tsconfig: "tsconfig.jest.json" }
     ]
   },
   moduleNameMapper: {
