@@ -1,8 +1,16 @@
 import type { ReportItem } from "../models";
 
-const API_URL =
-  (import.meta as any)?.env?.VITE_API_URL ??
-  (globalThis as any).importMetaEnv?.VITE_API_URL;
+function getApiUrl() {
+  try {
+    // Vite
+    return (import.meta as any)?.env?.VITE_API_URL;
+  } catch {
+    // Jest / Node / fallback
+    return (globalThis as any).importMetaEnv?.VITE_API_URL;
+  }
+}
+
+const API_URL = getApiUrl();
 
 
 export async function getReports() : Promise<ReportItem[]> {
