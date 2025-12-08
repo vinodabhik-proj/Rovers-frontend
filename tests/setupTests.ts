@@ -6,10 +6,13 @@ Object.assign(global, {
   TextDecoder
 });
 
-globalThis.importMetaEnv = {
-  VITE_API_URL: "http://localhost:3000"
+// Mock Vite's import.meta.env in Jest
+(globalThis as any).import_meta_env = {
+  VITE_API_URL: "http://localhost:5173"
 };
 
-Object.defineProperty(globalThis, "import", {
-  value: { meta: { env: globalThis.importMetaEnv } }
+// Ensure code accessing import.meta.env works
+Object.defineProperty(import.meta, "env", {
+  value: (globalThis as any).import_meta_env,
+  writable: false
 });
