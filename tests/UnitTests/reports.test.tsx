@@ -1,10 +1,9 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import Reports from "../../src/pages/Reports/Reports";
-import * as api from "../../src/services/ReportService";
-import {vi} from "vitest";
+import { mockApi } from "../mocks/server";
 
 test("handles API success", async () => {
-  vi.spyOn(api, "getReports").mockResolvedValue([
+  mockApi.getReports.mockResolvedValue([
     {
       id: 1,
       roversScore: 2,
@@ -13,8 +12,8 @@ test("handles API success", async () => {
       mom: "Dave",
       dod: "Sam",
       description: "Great game.",
-      date: new Date("2024-01-01")
-    }
+      date: new Date("2024-01-01"),
+    },
   ]);
 
   render(<Reports />);

@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { TextEncoder, TextDecoder } from "util";
-import { vi } from "vitest";
+import { vi, beforeEach } from "vitest";
+import { setupFetchMock, resetApiMocks } from "./mocks/server";
 
 class MockIntersectionObserver {
   observe() {}
@@ -10,6 +11,11 @@ class MockIntersectionObserver {
 
 vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
 
+setupFetchMock();
+
+beforeEach(() => {
+  resetApiMocks();
+});
 
 Object.assign(global, {
   TextEncoder,
