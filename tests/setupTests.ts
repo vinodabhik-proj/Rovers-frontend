@@ -7,6 +7,10 @@ Object.assign(global, {
 });
 
 // Mock Vite's import.meta.env in Jest
-(globalThis as any).import_meta_env = {
-  VITE_API_URL: "http://localhost:5173"
-};
+Object.defineProperty(import.meta, 'env', {
+  value: {
+    VITE_API_URL: 'http://localhost:3000',
+  },
+  writable: false,
+});
+
