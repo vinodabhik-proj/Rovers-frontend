@@ -1,5 +1,15 @@
 import "@testing-library/jest-dom";
 import { TextEncoder, TextDecoder } from "util";
+import { vi } from "vitest";
+
+class MockIntersectionObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
+vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
+
 
 Object.assign(global, {
   TextEncoder,

@@ -1,9 +1,10 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import Reports from "../../src/pages/Reports/Reports";
 import * as api from "../../src/services/ReportService";
+import {vi} from "vitest";
 
 test("handles API success", async () => {
-  jest.spyOn(api, "getReports").mockResolvedValue([
+  vi.spyOn(api, "getReports").mockResolvedValue([
     {
       id: 1,
       roversScore: 2,
