@@ -6,6 +6,6 @@ test("renders all cards", () => {
   render(<CardGrid />);
 
   cards.forEach(c =>
-    expect(screen.getAllByText(c.position)).toBeInTheDocument()
+    expect(screen.getAllByText(c.position).length).toBeGreaterThan(0)
   );
 });
