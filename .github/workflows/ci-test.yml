@@ -46,7 +46,7 @@ jobs:
       # 5. Install Playwright Browsers
       # -------------------------------------------------------------
       - name: Install Playwright Browsers and Dependencies
-        uses: npx playwright install --with-deps
+        run: npx playwright install --with-deps
 
       # -------------------------------------------------------------
       # 6. Run Playwright E2E tests
