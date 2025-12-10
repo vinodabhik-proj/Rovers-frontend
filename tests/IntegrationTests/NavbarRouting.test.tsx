@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import App from "../../src/App";
+import { mockApi } from "../mocks/server";
 
 test("navbar links navigate correctly", async () => {
     mockApi.getReports.mockResolvedValue([
@@ -16,7 +17,7 @@ test("navbar links navigate correctly", async () => {
         date: new Date("2024-01-01"),
       },
     ]);
-    
+
   render(
     <BrowserRouter>
       <App />
