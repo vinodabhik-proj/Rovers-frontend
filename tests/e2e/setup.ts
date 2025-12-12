@@ -1,5 +1,4 @@
-import { TransformStream, ReadableStream, WritableStream } from 'web-streams-polyfill/ponyfill';
+import { TransformStream, WritableStream } from 'web-streams-polyfill';
 
 global.TransformStream = TransformStream;
-global.ReadableStream = ReadableStream;
 global.WritableStream = WritableStream;
