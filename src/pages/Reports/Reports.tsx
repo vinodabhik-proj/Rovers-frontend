@@ -25,7 +25,7 @@ export default function Reports() {
 
 	useEffect(() => {
 		LoadReports();
-	});
+	}, []);
 
 	if (loading) return <p>Loading...</p>;
 
