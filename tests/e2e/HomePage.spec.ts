@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("home page renders", async ({ page }) => {
-  await page.goto("http://localhost:5173/"); // or localhost:3000
+  await page.goto("/");
 
   await expect(page.getByRole("heading", { name: "Trumpington Rovers" }))
     .toBeVisible();
