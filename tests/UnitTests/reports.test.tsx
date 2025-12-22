@@ -26,7 +26,7 @@ describe("Reports Page", () => {
         oppoName: "United",
         mom: "Dave",
         dod: "Sam",
-        description: "Great game.\n\s\s\nAnother paragraph.",
+        description: "Great game.\n\  \nAnother paragraph.",
         date: new Date("2024-01-01"),
       },
     ]);
