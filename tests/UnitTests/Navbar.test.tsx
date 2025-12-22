@@ -40,9 +40,9 @@ describe("Navbar", () => {
       </BrowserRouter>
     );
 
-    // FaRegUserCircle renders as an SVG, so we can query by role
     const userIcon = screen.getByTestId("user-icon");
     expect(userIcon).toBeInTheDocument();
   });
 });
+
 
