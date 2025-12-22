@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
 import CardGrid from "../../src/components/CardGrid/CardGrid";
 import { cards } from "../../src/data/cards";
 
-// Optional: mock framer-motion to avoid animation issues
-jest.mock("framer-motion", () => ({
+// Mock framer-motion to avoid animation + viewport issues
+vi.mock("framer-motion", () => ({
   motion: {
     div: ({ children, ...props }: any) => (
       <div {...props}>{children}</div>
@@ -12,7 +13,7 @@ jest.mock("framer-motion", () => ({
 }));
 
 describe("CardGrid", () => {
-  test("renders the section title", () => {
+  it("renders the section title", () => {
     render(<CardGrid />);
 
     expect(
@@ -22,7 +23,7 @@ describe("CardGrid", () => {
     ).toBeInTheDocument();
   });
 
-  test("renders one card per item in the cards data", () => {
+  it("renders one card per item in the cards data", () => {
     render(<CardGrid />);
 
     // Each card renders an h3
@@ -30,7 +31,7 @@ describe("CardGrid", () => {
     expect(cardTitles).toHaveLength(cards.length);
   });
 
-  test("renders card images with accessible alt text", () => {
+  it("renders card images with accessible alt text", () => {
     render(<CardGrid />);
 
     const images = screen.getAllByRole("img");
@@ -42,7 +43,7 @@ describe("CardGrid", () => {
     });
   });
 
-  test("renders card descriptions", () => {
+  it("renders card descriptions", () => {
     render(<CardGrid />);
 
     cards.forEach(card => {
@@ -52,3 +53,4 @@ describe("CardGrid", () => {
     });
   });
 });
+
