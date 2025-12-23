@@ -25,7 +25,7 @@ export default function Navbar() {
       </div>
 
       <div className="nav-right">
-        <FaRegUserCircle size={24} />
+        <FaRegUserCircle size={24} data-testid="user-icon" />
       </div>
     </nav>
   );

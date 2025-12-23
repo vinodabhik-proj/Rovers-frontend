@@ -1,8 +1,13 @@
 import { test, expect } from "@playwright/test";
 
-test("home page renders", async ({ page }) => {
+test("home page renders main heading", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { name: "Trumpington Rovers" }))
-    .toBeVisible();
+  const heading = page.getByRole("heading", {
+    name: /trumpington rovers/i,
+    level: 1,
+  });
+
+  await expect(heading).toBeVisible();
 });
+
