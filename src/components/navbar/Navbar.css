@@ -64,6 +64,11 @@ nav a.active {
   font-weight: 600;
 }
 
+/* Login Styling */
+.login {
+  margin-right: 1.5rem;
+}
+
 /* Responsiveness */
 
 @media (max-width: 600px) {

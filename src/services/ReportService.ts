@@ -1,19 +1,12 @@
 import type { ReportItem } from "../models";
-
-function getApiUrl() {
-  try {
-    // Vite
-    return (import.meta as any)?.env?.VITE_API_URL;
-  } catch {
-    // Jest / Node / fallback
-    return (globalThis as any).importMetaEnv?.VITE_API_URL;
-  }
-}
-
-const API_URL = getApiUrl();
-
+import getApiUrl from "../hooks/apiUrl";
 
 export async function getReports() : Promise<ReportItem[]> {
+  const API_URL = getApiUrl();
+
+  if (!API_URL) {
+    throw new Error("VITE_API_URL is not defined");
+  }
 
   const res = await fetch(`${API_URL}/api/reports`);
 
