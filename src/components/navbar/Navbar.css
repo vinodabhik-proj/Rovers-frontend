@@ -83,4 +83,8 @@ nav a.active {
 	.nav-right {
 		margin-right: 1rem;
 	}
+
+  .nav-right svg {
+	margin-right: 0.5rem;
+}
 }
