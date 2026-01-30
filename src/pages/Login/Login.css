@@ -18,11 +18,20 @@
   cursor: pointer !important;
 }
 
-.fbIcon {
+.msIcon {
   width: 60%;
   height: 60%;
   margin-top: 10%;
-  color: blue;
-  background-color: white;
-  border-radius: 5rem;
+  background: linear-gradient(135deg, 
+    #f25022 0%, 
+    #f25022 25%, 
+    #7fba00 25%, 
+    #7fba00 50%, 
+    #00a4ef 50%, 
+    #00a4ef 75%, 
+    #ffb900 75%, 
+    #ffb900 100%
+  );
+  color: rgba(211,211,211, 0.75);
+  border-radius: 1rem;
 }
