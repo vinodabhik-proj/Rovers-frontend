@@ -34,8 +34,8 @@ export default function Navbar() {
         {
           user ? (
             <>
-              <span>Hi, {user.firstName}</span>
-              <button onClick={logout}>Logout</button>
+              <span className="username">Hi, {user.firstName}</span>
+              <button className="logoutButton" onClick={logout}>Logout</button>
             </>
           ) : (
             <NavLink to="/login" className="login">
@@ -43,7 +43,7 @@ export default function Navbar() {
             </NavLink>
           )
         }
-        <FaRegUserCircle size={24} data-testid="user-icon" />
+        <FaRegUserCircle size={36} data-testid="user-icon" />
       </div>
     </nav>
   );

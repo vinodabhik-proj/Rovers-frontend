@@ -39,6 +39,7 @@ nav {
   right: 1.5rem;       /* ← your 1.5rem offset */
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .nav-right svg {
@@ -67,6 +68,15 @@ nav a.active {
 /* Login Styling */
 .login {
   margin-right: 1.5rem;
+}
+
+.username {
+  margin-right: 5%;
+  width: 6rem;
+}
+
+.logoutButton {
+  margin-right: 5%;
 }
 
 /* Responsiveness */
