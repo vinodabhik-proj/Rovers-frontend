@@ -3,6 +3,15 @@ import { MemoryRouter } from "react-router-dom";
 import { describe, it, expect } from "vitest";
 import App from "../../src/App";
 import { mockApi } from "../mocks/server";
+import { vi } from "vitest";
+
+vi.mock("../../src/hooks/auth", () => ({
+  useAuth: () => ({
+    user: null,
+    loading: false,
+    logout: vi.fn(),
+  }),
+}));
 
 describe("App routing (integration)", () => {
   it("renders the home page at the root route", () => {
