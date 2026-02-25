@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Reports from "./pages/Reports/Reports";
 import Navbar from "./components/navbar/Navbar";
+import Login from "./pages/Login/Login";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/"  element={ <Home /> } />
         <Route path="/reports" element={ <Reports />} />
+        <Route path="/login" element={ <Login /> } />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </div>

@@ -30,4 +30,11 @@ Object.defineProperty(import.meta, "env", {
   writable: false,
 });
 
-
+// Mock useAuth hook
+vi.mock("../src/hooks/auth", () => ({
+  useAuth: () => ({
+    user: null,
+    loading: false,
+    logout: vi.fn(),
+  }),
+}));
