@@ -3,17 +3,22 @@ import { describe, it, expect } from "vitest";
 import Reports from "../../src/pages/Reports/Reports";
 import { mockApi } from "../mocks/server";
 import { renderWithAuth } from "../test-utils/renderWithAuth";
-
-// Mock Framer Motion
 import { vi } from "vitest";
+
 vi.mock("framer-motion", () => ({
   motion: {
     div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
   },
 }));
 
+beforeEach(() => {
+  vi.clearAllMocks();
+});
+
 describe("Reports Page", () => {
-  it("displays loading initially", () => {
+  it("displays loading initially", async () => {
+    mockApi.getReports.mockResolvedValue([]);
+
     renderWithAuth(<Reports />, {
       user: { firstName: "Test" },
     });
