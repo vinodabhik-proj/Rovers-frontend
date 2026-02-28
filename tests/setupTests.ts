@@ -34,3 +34,7 @@ Object.defineProperty(import.meta, "env", {
 vi.mock("../src/hooks/auth", () => ({
   useAuth: vi.fn(),
 }));
+
+vi.mock("../src/hooks/apiUrl", () => ({
+  default: vi.fn(),
+}));
