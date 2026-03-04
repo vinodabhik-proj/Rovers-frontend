@@ -15,8 +15,12 @@ test("user can navigate to login page", async ({ page }) => {
 test("clicking Microsoft triggers redirect", async ({ page }) => {
   await page.goto("/login");
 
-  await Promise.all([
-    page.waitForURL(/auth\/entra\/login/),
+  const [request] = await Promise.all([
+    page.waitForRequest((req) =>
+      req.url().includes("/auth/entra/login")
+    ),
     page.getByText("Microsoft").click(),
   ]);
+
+  expect(request.url()).toContain("/auth/entra/login");
 });
