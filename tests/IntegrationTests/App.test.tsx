@@ -4,6 +4,24 @@ import { describe, it, expect } from "vitest";
 import App from "../../src/App";
 import { mockApi } from "../mocks/server";
 
+import { useAuth } from "../../src/hooks/auth";
+import { vi } from "vitest";
+
+const mockedUseAuth = vi.mocked(useAuth);
+
+beforeEach(() => {
+  mockedUseAuth.mockReturnValue({
+    user: {
+      id: "1",
+      firstName: "Test",
+      lastName: "User",
+      roles: [],
+    },
+    loading: false,
+    logout: vi.fn().mockResolvedValue(undefined),
+  });
+});
+
 describe("App routing (integration)", () => {
   it("renders the home page at the root route", () => {
     render(

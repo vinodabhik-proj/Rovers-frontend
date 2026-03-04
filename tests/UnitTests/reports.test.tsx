@@ -2,18 +2,27 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import Reports from "../../src/pages/Reports/Reports";
 import { mockApi } from "../mocks/server";
-
-// Mock Framer Motion
+import { renderWithAuth } from "../test-utils/renderWithAuth";
 import { vi } from "vitest";
+
 vi.mock("framer-motion", () => ({
   motion: {
     div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
   },
 }));
 
+beforeEach(() => {
+  vi.clearAllMocks();
+});
+
 describe("Reports Page", () => {
-  it("displays loading initially", () => {
-    render(<Reports />);
+  it("displays loading initially", async () => {
+    mockApi.getReports.mockResolvedValue([]);
+
+    renderWithAuth(<Reports />, {
+      user: { firstName: "Test" },
+    });
+
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
@@ -31,7 +40,9 @@ describe("Reports Page", () => {
       },
     ]);
 
-    render(<Reports />);
+    renderWithAuth(<Reports />, {
+      user: { firstName: "Test" },
+    });
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
 
     await waitFor(() => {
@@ -51,7 +62,9 @@ describe("Reports Page", () => {
 
   it("renders 'No Reports Available' if API returns empty array", async () => {
     mockApi.getReports.mockResolvedValue([]);
-    render(<Reports />);
+    renderWithAuth(<Reports />, {
+      user: { firstName: "Test" },
+    });
 
     await waitFor(() => {
       expect(screen.getByText(/no reports available/i)).toBeInTheDocument();
@@ -60,7 +73,9 @@ describe("Reports Page", () => {
 
   it("renders error message if API fails", async () => {
     mockApi.getReports.mockRejectedValue(new Error("API Error"));
-    render(<Reports />);
+    renderWithAuth(<Reports />, {
+      user: { firstName: "Test" },
+    });
 
     await waitFor(() => {
       expect(
